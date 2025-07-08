@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚡ AI Website Builder</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <!-- Main styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Prism highlight -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="brand">
+      <img src="logo.jpg" alt="AI Logo" class="logo" />
+      <span class="brand-text">⚡ AI Frontend Generator</span>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main class="container card">
+    <h2 class="section-title">Describe the website you want to build…</h2>
+
+    <textarea id="prompt" placeholder="e.g., Create a tic‑tac‑toe game with restart button"></textarea>
+
+    <label style="display:block; margin-bottom:12px; text-align:center;">
+      <input type="checkbox" id="emojiOption" style="margin-right:8px; vertical-align:middle;">
+      Include emojis in the website
+    </label>
+
+    <div class="button-row">
+      <button id="generateBtn">Generate Website</button>
+      <button id="previewBtn"  disabled>Show Preview</button>
+      <button id="downloadBtn" disabled>Download .zip</button>
+      <button id="codeBtn"     disabled>Show Code</button>
+    </div>
+
+    <div class="output" id="output"></div>
+
+    <!-- Preview -->
+    <div class="preview-box" id="previewBox">
+      <button class="close-preview" id="closePreviewBtn">Close</button>
+      <iframe id="previewIframe"></iframe>
+    </div>
+
+    <!-- Code viewer -->
+    <div id="codePanel" style="display:none;"></div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-left">
+      <img src="logo.jpg" alt="AI Logo" class="logo" />
+      <div>
+        <h3>⚡ AI Frontend Generator</h3>
+        <small>AI‑Powered Website Builder</small>
+      </div>
+    </div>
+    <div class="footer-right">
+      Built with ❤️ by Debasis Prusty<br />
+      © 2025 AI Frontend Generator. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+  <!-- Prettier formatter -->
+  <script type="module">
+    import prettier   from "https://cdn.jsdelivr.net/npm/prettier@3.2.5/standalone.mjs";
+    import parserHtml from "https://cdn.jsdelivr.net/npm/prettier@3.2.5/plugins/html.mjs";
+    import parserCss  from "https://cdn.jsdelivr.net/npm/prettier@3.2.5/plugins/postcss.mjs";
+    import parserJs   from "https://cdn.jsdelivr.net/npm/prettier@3.2.5/plugins/babel.mjs";
+    window.prettifyCode = (c,l)=>prettier.format(c,{parser:l,plugins:[parserHtml,parserCss,parserJs]});
+  </script>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
